@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Router, Route, hashHistory as history } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import auth from 'src/common/auth.js';
-import * as CredentialsActions from 'src/actions/credentials-actions.js';
-import Login from './login.jsx';
-import TodoApp from './todo-app.jsx';
+import auth from '../common/auth.js';
+import * as CredentialsActions from '../actions/credentials-actions.js';
+import Login from '../modules/auth/containers/Login.jsx';
+import TodoApp from '../modules/todo-app/containers/TodoApp.jsx';
+import credentialPropTypes from './CredentialPropTypes';
 
 class AppRouteComponent extends Component {
   componentWillMount() {
@@ -82,13 +83,22 @@ class AppRouteComponent extends Component {
 if (__DEV__) {
   // Not needed or used in minified mode
   AppRouteComponent.propTypes = {
-    credentials: Login.PropTypes.credentials.isRequired,
-    credentialsActions: Login.PropTypes.credentialsActions.isRequired
+    credentials: credentialPropTypes.credentials,
+    credentialsActions: credentialPropTypes.credentialsActions
   };
 }
 
-const AppRoute = connect(state => ({ credentials: state.credentials }), dispatch => ({
-  credentialsActions: bindActionCreators(CredentialsActions, dispatch)
-}))(AppRouteComponent);
+function mapStateToProps(state) {
+  const credentials = state.credentials;
+  return {
+    credentials
+  }
+}
 
-export default AppRoute;
+function mapDispatchToProps(dispatch) {
+  return {
+    credentialsActions: bindActionCreators(CredentialsActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppRouteComponent)

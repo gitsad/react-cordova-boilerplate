@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginInjector from 'inject-loader!src/containers/login.jsx';
+import LoginInjector from 'inject-loader!src/modules/auth/containers/Login.jsx';
 import reactHelper from 'test/helper/react.jsx';
 import getReactReduxMock from 'test/mock/react-redux.js';
 import getCredentialsActionsMock from 'test/mock/credentials-actions.js';

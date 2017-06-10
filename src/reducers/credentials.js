@@ -6,7 +6,7 @@ import {
   ADD_CREDENTIALS,
   ADD_CREDENTIALS_SUCCESS,
   ADD_CREDENTIALS_FAILURE
-} from 'src/constants/credentials-action-types.js';
+} from '../constants/credentials-action-types.js';
 
 const initialState = {
   authenticated: false,

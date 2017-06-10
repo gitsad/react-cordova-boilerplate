@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import todoStyle from 'src/style/todo-style.scss';
-import TodoTextInput from './todo-text-input.jsx';
+import TodoTextInput from './TodoTextInput.jsx';
 
-export default class Header extends Component {
-  handleSave = this.handleSave.bind(this);
-  handleSave(text) {
+export default class Header extends React.Component {
+  handleSave = (text) => {
     if (text.length !== 0) {
       this.props.addTodo(text);
     }
-  }
+  };
   render() {
     return (
       <header className={todoStyle.header}>
@@ -23,6 +22,7 @@ export default class Header extends Component {
     );
   }
 }
+
 if (__DEV__) {
   // Not needed or used in minified mode
   Header.propTypes = {

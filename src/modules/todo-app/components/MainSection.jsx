@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } from 'src/constants/todo-filters.js';
+import { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } from '../../../constants/todo-filters.js';
 import todoStyle from 'src/style/todo-style.scss';
-import TodoItem from './todo-item.jsx';
-import Footer from './footer.jsx';
+import TodoItem from './TodoItem.jsx';
+import Footer from './Footer.jsx';
 
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,

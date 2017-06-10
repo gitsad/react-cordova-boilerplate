@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import todoStyle from 'src/style/todo-style.scss';
-import TodoTextInput from './todo-text-input.jsx';
+import TodoTextInput from './TodoTextInput.jsx';
 
 export default class TodoItem extends Component {
   componentWillMount() {

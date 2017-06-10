@@ -1,11 +1,7 @@
-import {
-  ADD_TODO,
-  DELETE_TODO,
-  EDIT_TODO,
-  MARK_TODO,
-  MARK_ALL,
-  CLEAR_MARKED
-} from '../constants/todo-action-types.js';
+/**
+ * Created by gitsad on 10.06.17.
+ */
+import REDUX_CONST from './constants';
 
 const initialState = [{
   text: 'Use Redux',
@@ -15,35 +11,35 @@ const initialState = [{
 
 export default function todos(state = initialState, action) {
   switch (action.type) {
-    case ADD_TODO:
+    case REDUX_CONST.ADD_TODO:
       return [{
         id: (state.length === 0) ? 0 : state[0].id + 1,
         marked: false,
         text: action.text
       }, ...state];
 
-    case DELETE_TODO:
+    case REDUX_CONST.DELETE_TODO:
       return state.filter(todo =>
         todo.id !== action.id
       );
 
-    case EDIT_TODO:
+    case REDUX_CONST.EDIT_TODO:
       return state.map(todo =>
         (todo.id === action.id ? {
           ...todo, text: action.text
         } :
-        todo)
+          todo)
       );
 
-    case MARK_TODO:
+    case REDUX_CONST.MARK_TODO:
       return state.map(todo =>
         (todo.id === action.id ? {
           ...todo, marked: !todo.marked
         } :
-        todo)
+          todo)
       );
 
-    case MARK_ALL: {
+    case REDUX_CONST.MARK_ALL: {
       const areAllMarked = state.every(todo => todo.marked);
       return state.map(todo => ({
         ...todo,
@@ -51,7 +47,7 @@ export default function todos(state = initialState, action) {
       }));
     }
 
-    case CLEAR_MARKED:
+    case REDUX_CONST.CLEAR_MARKED:
       return state.filter(todo => todo.marked === false);
 
     default:

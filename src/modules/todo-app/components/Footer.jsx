@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as todoFilters from 'src/constants/todo-filters.js';
+import * as todoFilters from '../../../constants/todo-filters.js';
 import todoStyle from 'src/style/todo-style.scss';
 
 const { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } = todoFilters;
@@ -9,6 +9,14 @@ const FILTER_TITLES = {
   [SHOW_ALL]: 'All',
   [SHOW_UNMARKED]: 'Active',
   [SHOW_MARKED]: 'Completed'
+};
+
+const propTypes = {
+  markedCount: PropTypes.number.isRequired,
+  unmarkedCount: PropTypes.number.isRequired,
+  filter: PropTypes.oneOf(Object.keys(todoFilters).map(k => todoFilters[k])).isRequired,
+  onClearMarked: PropTypes.func.isRequired,
+  onShow: PropTypes.func.isRequired
 };
 
 export default class Footer extends Component {
@@ -72,11 +80,5 @@ export default class Footer extends Component {
 }
 if (__DEV__) {
   // Not needed or used in minified mode
-  Footer.propTypes = {
-    markedCount: PropTypes.number.isRequired,
-    unmarkedCount: PropTypes.number.isRequired,
-    filter: PropTypes.oneOf(Object.keys(todoFilters).map(k => todoFilters[k])).isRequired,
-    onClearMarked: PropTypes.func.isRequired,
-    onShow: PropTypes.func.isRequired
-  };
+  Footer.propTypes = propTypes
 }

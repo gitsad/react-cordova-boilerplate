@@ -8,3 +8,4 @@ www/*
 npm-debug.log
 .DS_Store
 .tmp
+.idea/
