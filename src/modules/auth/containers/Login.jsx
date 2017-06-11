@@ -92,8 +92,17 @@ if (__DEV__) {
   LoginComponent.propTypes = propTypes;
 }
 
-const Login = connect(state => ({ credentials: state.credentials }), dispatch => ({
-  credentialsActions: bindActionCreators(CredentialsActions, dispatch)
-}))(LoginComponent);
+function mapStateToProps(state) {
+  const credentials = state.credentials;
+  return {
+    credentials
+  }
+}
 
-export default Login;
+function mapDispatchToProps(dispatch) {
+  return {
+    credentialsActions: bindActionCreators(CredentialsActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
