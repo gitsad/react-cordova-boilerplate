@@ -17,8 +17,8 @@ export const propTypes = {
 };
 
 class LoginComponent extends Component {
-  componentWillMount() {
-    this.handleSubmit = this.handleSubmit.bind(this);
+  constructor() {
+    super();
     this.state = {
       isMountedAndCreatedByRouter: false
     };
@@ -31,10 +31,10 @@ class LoginComponent extends Component {
       setTimeout(() => this.setState({ isMountedAndCreatedByRouter: true }));
     }
   }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
 
-    const { credentialsActions } = this.props;
+    const {credentialsActions} = this.props;
     credentialsActions.addCredentials();
 
     const email = this._emailRef.value;
@@ -48,6 +48,7 @@ class LoginComponent extends Component {
       }
     });
   }
+
   render() {
     const { credentials } = this.props;
     const { isMountedAndCreatedByRouter } = this.state;
@@ -56,7 +57,7 @@ class LoginComponent extends Component {
 
     return (
       <div>
-        <div className="todomvc-class">
+        <div className="login-header">
           <h1>
             TodoMVC example
           </h1>
