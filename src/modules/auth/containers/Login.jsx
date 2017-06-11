@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import customFont from 'src/style/custom-font.scss';
 import auth from '../../../common/auth.js';
 import credentialPropTypes from '../../../containers/CredentialPropTypes';
 import * as CredentialsActions from '../../../actions/credentials-actions.js';
@@ -57,11 +56,7 @@ class LoginComponent extends Component {
 
     return (
       <div>
-        <div>
-          <span className={`${customFont.customFont} ${customFont.customFontJs}`} style={{ fontSize: '200px' }}>
-            <span className={customFont.path1} />
-            <span className={customFont.path2} />
-          </span>
+        <div className="todomvc-class">
           <h1>
             TodoMVC example
           </h1>
