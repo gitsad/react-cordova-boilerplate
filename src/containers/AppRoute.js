@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Router, Route, hashHistory as history } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -8,7 +8,7 @@ import Login from '../modules/auth/containers/Login.jsx';
 import TodoApp from '../modules/todo-app/containers/TodoApp.jsx';
 import credentialPropTypes from './CredentialPropTypes';
 
-class AppRouteComponent extends Component {
+class AppRouteComponent extends React.Component {
   componentWillMount() {
     this.checkAuth = this.checkAuth.bind(this);
     this.handleRedirect = this.handleRedirect.bind(this);
@@ -56,20 +56,9 @@ class AppRouteComponent extends Component {
       this._shouldRouterUpdate = false;
     }
   }
-  checkAuth(nextState, replace) {
-    if (!this._authenticated) {
-      replace('/login');
-    }
-  }
-  handleRedirect(nextState, replace) {
-    replace(this._authenticated ? '/main' : '/login');
-  }
+
 
   render() {
-    if (this._isCheckingInitialLogIn) {
-      return (<Login />);
-    }
-
     return (
       <Router history={history}>
         <Route path="/main" component={TodoApp} onEnter={this.checkAuth} />

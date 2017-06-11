@@ -1,10 +1,13 @@
+/**
+ * Created by gitsad on 12.06.17.
+ */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import auth from '../../../common/auth.js';
 import credentialPropTypes from '../../../containers/CredentialPropTypes';
-import * as CredentialsActions from '../../../actions/credentials-actions.js';
+import * as CredentialsActions from '../actions';
 
 const defaultProps = {
   route: undefined

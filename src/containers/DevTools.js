@@ -1,3 +1,6 @@
+/**
+ * Created by gitsad on 12.06.17.
+ */
 import React from 'react';
 
 // Exported from redux-devtools

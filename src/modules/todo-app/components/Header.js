@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import todoStyle from 'src/style/todo-style.scss';
-import TodoTextInput from './TodoTextInput.jsx';
+import TodoTextInput from './TodoTextInput';
 
 export default class Header extends React.Component {
   handleSave = (text) => {

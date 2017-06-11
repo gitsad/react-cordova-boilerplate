@@ -1,14 +1,17 @@
+/**
+ * Created by gitsad on 12.06.17.
+ */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as TodoActions from '../actions.js';
-import * as CredentialsActions from '../../../actions/credentials-actions.js';
+import * as CredentialsActions from '../../auth/actions';
 import auth from '../../../common/auth.js';
-import Header from '../components/Header.jsx';
-import MainSection from '../components/MainSection.jsx';
+import Header from '../components/Header';
+import MainSection from '../components/MainSection';
 import todoStyle from 'src/style/todo-style.scss';
-import TodoItem from '../components/TodoItem.jsx';
+import TodoItem from '../components/TodoItem';
 import credentialsPropTypes from '../../../containers/CredentialPropTypes';
 
 const propTypes = {
