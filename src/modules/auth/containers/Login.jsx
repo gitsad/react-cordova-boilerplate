@@ -1,86 +1,56 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import auth from '../../../common/auth.js';
-import credentialPropTypes from '../../../containers/CredentialPropTypes';
 import * as CredentialsActions from '../../../actions/credentials-actions.js';
 
-const defaultProps = {
-  route: undefined
-};
+import { AuthInput } from '../components/AuthInput.jsx';
+import { AuthButton } from '../components/AuthButton.jsx';
+import { FormHeader } from '../components/FormHeader.jsx';
 
-export const propTypes = {
-  credentials: credentialPropTypes.credentials,
-  credentialsActions: credentialPropTypes.credentialsActions,
-  route: PropTypes.shape({}),
-};
+const defaultProps = {};
+const propTypes = {};
 
-class LoginComponent extends Component {
+class LoginComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      isMountedAndCreatedByRouter: false
+      login: '',
+      password: ''
     };
-  }
-  componentDidMount() {
-    // Chnage 'isMountedAndCreatedByRouter' from false to true
-    // only when generated from router for the first time.
-    // For animation effect
-    if (this.props.route !== undefined) {
-      setTimeout(() => this.setState({ isMountedAndCreatedByRouter: true }));
+    this.inputs = {
+      password: {
+        onChange: (e) => this.onChangeInput(e, 'password'),
+        type: 'password',
+        placeholder: 'password',
+      },
+      login: {
+        onChange: (e) => this.onChangeInput(e, 'login'),
+        type: 'text',
+        placeholder: 'login',
+      }
     }
   }
+
   handleSubmit = (e) => {
-    e.preventDefault();
+      e.preventDefault();
+      console.log(this.state)
+  };
 
-    const {credentialsActions} = this.props;
-    credentialsActions.addCredentials();
-
-    const email = this._emailRef.value;
-    const password = this._passwordRef.value;
-
-    auth.login(email, password, (authenticated, hint) => {
-      if (authenticated) {
-        credentialsActions.addCredentialsSucess();
-      } else {
-        credentialsActions.addCredentialsFailure(hint);
-      }
-    });
-  }
+  onChangeInput = (event, input) => {
+    this.setState({
+        [input]: event.target.value
+    })
+  };
 
   render() {
-    const { credentials } = this.props;
-    const { isMountedAndCreatedByRouter } = this.state;
-    const { checkingToken, loggingIn, hint } = credentials;
-    const hideLogin = (!isMountedAndCreatedByRouter) || checkingToken || loggingIn;
-
     return (
-      <div>
-        <div className="login-header">
-          <h1>
-            TodoMVC example
-          </h1>
-        </div>
-        <div>
-          <h1>
-            Login
-          </h1>
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <input type="text" ref={ref => { this._emailRef = ref; }} placeholder="Email" />
-            </div>
-            <div>
-              <input type="password" ref={ref => { this._passwordRef = ref; }} placeholder="Password" />
-              <div>{hint && `Hint: ${hint}`}</div>
-            </div>
-            <div>
-              <button type="submit">
-                Login
-              </button>
-            </div>
-          </form>
-        </div>
+      <div className="Login">
+        <form onSubmit={this.handleSubmit}>
+          <FormHeader text="BoilerPlate Login"/>
+          <AuthInput {...this.inputs.login} />
+          <AuthInput {...this.inputs.password} />
+          <AuthButton text="Login" />
+        </form>
       </div>
     );
   }
