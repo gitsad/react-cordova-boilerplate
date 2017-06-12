@@ -1,10 +1,13 @@
+/**
+ * Created by gitsad on 12.06.17.
+ */
 import React, { Component } from 'react';
 import { Router, Route, hashHistory as history } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import auth from '../common/auth.js';
 import * as CredentialsActions from '../actions/credentials-actions.js';
-import Login from '../modules/auth/containers/Login.jsx';
+import Login from '../modules/auth/containers/Login';
 import TodoApp from '../modules/todo-app/containers/TodoApp.jsx';
 import credentialPropTypes from './CredentialPropTypes';
 
@@ -16,7 +19,7 @@ class AppRouteComponent extends Component {
     this._authenticated = this.props.credentials.authenticated;
     this._isCheckingInitialLogIn = true;
     this._shouldRouterUpdate = true;
-
+cor
     const { credentialsActions } = this.props;
     credentialsActions.checkCredentials();
 

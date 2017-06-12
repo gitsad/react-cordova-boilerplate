@@ -1,3 +1,6 @@
+/**
+ * Created by gitsad on 12.06.17.
+ */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';

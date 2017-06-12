@@ -1,0 +1,33 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-3",
+    "stage-2",
+    "stage-1",
+    "stage-0"
+  ],
+  "env": {
+    "development": {
+      "plugins": [["react-transform", {
+        "transforms": [{
+          "transform": "react-transform-hmr",
+          "imports": ["react"],
+          "locals": ["module"]
+        }]
+      }]]
+    },
+    "production": {
+      "presets": [
+        "es2015",
+        "react",
+        "react-optimize",
+        "es2015-native-modules",
+        "stage-3",
+        "stage-2",
+        "stage-1",
+        "stage-0"
+      ]
+    }
+  }
+}
