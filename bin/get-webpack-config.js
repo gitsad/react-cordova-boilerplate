@@ -39,7 +39,7 @@ const getWebpackConfig = (options = ({}), privateOptions = ({})) => {
     entry: isTest ? undefined : {
       [`app${isProd ? '.min' : ''}`]: (
         isWebpackDevServer ? [`webpack-dev-server/client?http://localhost:${port}`, 'webpack/hot/dev-server'] : []
-      ).concat(path.join(rootPath, 'src', 'entry-points', isClientBuild ? 'client.jsx' : 'server.jsx'))
+      ).concat(path.join(rootPath, 'src', 'entry-points', isClientBuild ? 'client.js' : 'server.jsx'))
     },
     output: isTest ? undefined : {
       path: path.join(rootPath, 'www'),
