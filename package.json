@@ -60,6 +60,7 @@
     "deasync": "^0.1.7",
     "dirty-chai": "^1.2.2",
     "eslint": "^3.13.1",
+    "eslint-loader": "^1.7.1",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-import-resolver-webpack": "^0.8.0",
     "eslint-plugin-import": "^2.2.0",

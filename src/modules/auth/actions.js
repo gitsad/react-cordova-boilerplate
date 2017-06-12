@@ -1,7 +1,7 @@
 /**
  * Created by gitsad on 10.06.17.
  */
-import * as types from '../constants/credentials-action-types.js';
+import * as types from '../../constants/credentials-action-types.js';
 
 export function clearCredentials() {
   return {

@@ -3,22 +3,16 @@
  */
 import React from 'react';
 
-import {Router, Route, hashHistory} from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { Route } from 'react-router';
 
-
-import configureStore from './store/configure-store';
+import App from './containers/App';
 import Login from './modules/auth/containers/Login';
 import TodoApp from './modules/todo-app/containers/TodoApp';
 
-const store = configureStore();
-
-const history = syncHistoryWithStore(hashHistory, store);
-
 
 export default (
-  <Router history={history}>
+  <Route path="/" component={App} >
     <Route path="/main" component={TodoApp} />
     <Route path="/login" component={Login} />
-  </Router>
+  </Route>
 );

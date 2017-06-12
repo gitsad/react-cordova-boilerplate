@@ -1,3 +1,6 @@
+/**
+ * Created by gitsad on 12.06.17.
+ */
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import App from 'src/containers/app.jsx';

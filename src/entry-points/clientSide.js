@@ -4,12 +4,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../app';
-import AppRoute from 'src/routes';
 import '../style/main.scss';
 
 ReactDOM.render(
-  <App>
-    <AppRoute />
-  </App>,
+  <App />,
   document.getElementById('app')
 );
