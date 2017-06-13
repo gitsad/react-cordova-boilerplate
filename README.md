@@ -1,5 +1,12 @@
 ## Part of Readme from https://github.com/unimonkiez/react-cordova-boilerplate
 
+## Changed parts
+1. Changed structure of projects, from containers and components to views and modules which have containers and components 
+2. Styling components is subjective opinion, I can't deny that Radium is very helpful tool for isolating and scaling styles but nowadays we have a lot of new things and tools which on
+  the first throw of eye seem to be 'must be' in our projects. We have to remember that these tools are still in development and we don't know if this particular tool will not be deprecated in future.
+   Anyway, if you want to use tool like Radium I didn't remove this feature but I have added also main.scss to which you can import other scss files with styles of yuor components.
+3. Some things need to be deleted because during changing structure of project I've forgot about some files. 
+
 ## Installing
 1. Install dependencies: ```npm i``` or ```yarn install```
 2. Install global tools: ```npm install -g cordova```

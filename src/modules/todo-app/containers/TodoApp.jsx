@@ -9,7 +9,6 @@ import Header from '../components/Header.jsx';
 import MainSection from '../components/MainSection.jsx';
 import todoStyle from 'src/style/todo-style.scss';
 import TodoItem from '../components/TodoItem.jsx';
-import credentialsPropTypes from '../../../containers/CredentialPropTypes';
 
 const propTypes = {
   todoActions: PropTypes.shape({
@@ -49,7 +48,6 @@ if (__DEV__) {
   // Not needed or used in minified mode
   TodoAppComponent.propTypes = {
     todos: PropTypes.arrayOf(TodoItem.propTypes.todo).isRequired,
-    credentialsActions: credentialsPropTypes.credentialsActions,
     todoActions: propTypes.todoActions
   };
 }
