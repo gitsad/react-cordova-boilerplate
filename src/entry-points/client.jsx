@@ -5,8 +5,8 @@ import AppRoute from 'src/containers/AppRoute.jsx';
 import '../style/main.scss';
 
 ReactDOM.render(
-  <App>
-    <AppRoute />
-  </App>,
-  document.getElementById('app')
+    <App>
+        <AppRoute />
+    </App>,
+    document.getElementById('app')
 );

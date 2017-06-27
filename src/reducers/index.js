@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import todos from '../modules/todo-app/reducer';
-import credentials from './credentials.js';
+import {routerReducer} from 'react-router-redux';
+import oneLevelReducer from '../modules/one-level/reducer';
 
 export default combineReducers({
-  todos,
-  credentials
+    routing: routerReducer,
+    oneLevelReducer
 });

@@ -1,0 +1,15 @@
+@import "flexbox";
+// clear-fix
+@mixin self-clear() {
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin background-image() {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

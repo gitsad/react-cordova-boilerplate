@@ -1,0 +1,18 @@
+@import "../../style/variables";
+.GameView {
+    position: relative;
+    box-sizing: border-box;
+    .back-button {
+        position: absolute;
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(center);
+        top: 30px;
+        right: 15px;
+        background-color: transparent;
+        border: none;
+        img {
+            width: 40px;
+        }
+    }
+}

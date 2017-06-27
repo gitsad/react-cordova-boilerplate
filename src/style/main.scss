@@ -1,1 +1,36 @@
-@import "../modules/auth/styles/main";
+// Modules
+@import "../containers/App";
+// Components
+@import "../components/button/Button";
+// Views
+@import "../views/styles/StartView";
+@import "../views/styles/LevelsView";
+@import "../views/styles/GameView";
+
+// Font
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4em;
+    background: #f5f5f5;
+    color: #4d4d4d;
+    min-width: 230px;
+    max-width: 360px;
+
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-weight: 300;
+}
